@@ -1,10 +1,205 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Hoşgeldiniz</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hossein B. Jond — Research & Publications</title>
+  <meta name="description" content="Hossein B. Jond — robotics & control researcher. Publications, projects, CV and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* dark slate */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#60a5fa;
+      --glass: rgba(255,255,255,0.03);
+      --maxw:1000px;
+      color-scheme: dark;
+      color: #e6eef8;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg) 0%, #071026 100%);}
+    a{ color:var(--accent); text-decoration:none }
+    header{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:28px 20px; max-width:var(--maxw); margin:0 auto }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .logo span{font-size:18px}
+    nav{display:flex; gap:14px; align-items:center}
+    nav a{padding:8px 12px;border-radius:8px;font-weight:600}
+    .container{max-width:var(--maxw);margin:24px auto;padding:0 20px}
+
+    .hero{display:flex;gap:28px;align-items:center;padding:28px;background:var(--glass);border-radius:14px}
+    .photo{width:150px;height:150px;border-radius:14px;background:linear-gradient(135deg,#0b1220, #0f2136);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .hero h1{margin:0;font-size:28px}
+    .hero p{margin:8px 0 0;color:var(--muted)}
+    .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    .tag{background: rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:20px;margin-top:20px}
+    .card{background:var(--card);padding:18px;border-radius:12px}
+    h2{margin:0 0 10px}
+    .pub-list{display:flex;flex-direction:column;gap:12px}
+    .pub{padding:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:10px}
+    .pub cite{font-style:normal;color:var(--muted)}
+    .side{position:sticky;top:24px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#001226;font-weight:700}
+
+    footer{max-width:var(--maxw);margin:36px auto 80px;padding:0 20px;color:var(--muted)}
+
+    @media (max-width:960px){
+      .grid{grid-template-columns:1fr;}
+      .side{position:static}
+      .hero{flex-direction:column;align-items:flex-start}
+    }
+
+    /* small utilities */
+    .muted{color:var(--muted)}
+    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace}
+  </style>
 </head>
 <body>
-  <h1>Merhaba! Bu benim GitHub Pages sitem 🚀</h1>
+  <header>
+    <div class="brand">
+      <div class="logo"><span>HB</span></div>
+      <div>
+        <div style="font-weight:800">Hossein B. Jond</div>
+        <div class="muted" style="font-size:13px">Robotics · Control · Multi-agent systems</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <div class="photo mono">HB</div>
+      <div style="flex:1">
+        <h1>Hossein B. Jond <span class="muted" style="font-weight:600">(H.B. Jond)</span></h1>
+        <p class="muted">Associate Professor. My research focuses on control of multi-robot systems, flocking and formation control, fault‑tolerant and optimal control of aerial robots, and bio-inspired coordination algorithms.</p>
+        <div class="tags">
+          <div class="tag">Control Theory</div>
+          <div class="tag">Multi-Agent Systems</div>
+          <div class="tag">Quadrotors</div>
+          <div class="tag">Optimization</div>
+        </div>
+        <div style="margin-top:14px">
+          <a class="btn" href="#publications">View publications</a>
+          <a class="btn" style="margin-left:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent);font-weight:700" href="/CV_Hossein_B_Jond.pdf">Download CV</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <div>
+        <section id="research" class="card">
+          <h2>Research</h2>
+          <p class="muted">My group explores mathematical models and control algorithms for teams of aerial robots. We combine rigorous analysis, optimal control, and simulation with experimental validation on quadrotor teams. Key themes:</p>
+          <ul class="muted">
+            <li>Bearing-distance based flocking and collision-avoidance strategies</li>
+            <li>Integral sliding mode control combined with metaheuristics for adaptive tuning</li>
+            <li>Differential-flatness based trajectory generation for multi-quadrotor coordination</li>
+            <li>Perception-limited local interaction laws and platooning</li>
+          </ul>
+
+          <h3 style="margin-top:16px">Selected highlights</h3>
+          <ul class="muted">
+            <li>Designed robust formation controllers validated in simulation for 10+ agents</li>
+            <li>Published work on bearing-distance flocking and zone-based interactions</li>
+            <li>Open-source MATLAB and Python code for boid models and trajectory generation</li>
+          </ul>
+        </section>
+
+        <section id="publications" class="card" style="margin-top:18px">
+          <h2>Publications</h2>
+          <p class="muted">(A curated selection — replace these entries with your real citations.)</p>
+          <div class="pub-list">
+            <article class="pub">
+              <strong>H.B. Jond</strong>, A. Researcher. <div class="muted">"Bearing‑Distance Based Flocking with Zone‑Based Interactions." <em>Journal of Multi-Agent Systems</em>, 2025.</div>
+            </article>
+
+            <article class="pub">
+              <strong>H. B. Jond</strong>, B. Coauthor. <div class="muted">"Integral Sliding Mode Control with GA &amp; Gradient Descent for Real‑Time Quadrotor Teams." <em>IEEE Transactions on Control Systems Technology</em>, 2024.</div>
+            </article>
+
+            <article class="pub">
+              <strong>H. B. Jond</strong>. <div class="muted">"Adapting Perception‑based Flocking to 1‑D Platooning Problems." <em>Conference on Robotics and Automation (workshop)</em>, 2023.</div>
+            </article>
+
+            <!-- Add more publications here. Consider automating via a JSON or BibTeX parser in the future. -->
+          </div>
+
+          <p style="margin-top:12px" class="muted">Want a machine‑readable list of your publications on the page? Add a <code class="mono">publications.json</code> file and a small script to render them automatically.</p>
+        </section>
+
+        <section id="projects" class="card" style="margin-top:18px">
+          <h2>Selected projects</h2>
+          <ul class="muted">
+            <li><strong>MATLAB Boids → MATLAB 2023b port</strong> — Migration and visualization of predator-prey boid simulations with zoom and trails.</li>
+            <li><strong>Quadrotor Formation Toolbox</strong> — Differential flatness tools for generating coordinated trajectories.</li>
+            <li><strong>Flocking Lab</strong> — Examples of bearing-distance and perception-limited interaction rules.</li>
+          </ul>
+          <p class="muted" style="margin-top:10px">Source code available on my <a href="https://github.com/hbjond" target="_blank">GitHub</a>.</p>
+        </section>
+      </div>
+
+      <aside class="side">
+        <div class="card">
+          <h3>Contact & links</h3>
+          <p class="muted">Associate Professor — Email: <a href="mailto:hbjond@university.edu">hbjond@university.edu</a></p>
+          <p class="muted">Profiles:</p>
+          <ul class="muted">
+            <li><a href="#">Google Scholar (add your link)</a></li>
+            <li><a href="#">ORCID</a></li>
+            <li><a href="https://github.com/hbjond" target="_blank">GitHub: @hbjond</a></li>
+          </ul>
+          <div style="margin-top:8px">
+            <a class="btn" href="mailto:hbjond@university.edu">Email me</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Quick CV</h3>
+          <p class="muted">Download a one‑page CV or the full academic CV</p>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <a class="btn" href="/CV_Hossein_B_Jond.pdf">Full CV (PDF)</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Get updates</h3>
+          <p class="muted">Subscribe to a lightweight notify list (replace with your service).</p>
+          <form action="#" onsubmit="alert('Replace form action with your subscription endpoint');return false;">
+            <input placeholder="your@email.edu" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-top:8px"/>
+            <button style="margin-top:8px;width:100%" class="btn">Subscribe</button>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div style="max-width:var(--maxw);margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center">
+      <div class="muted">© Hossein B. Jond — <span class="mono">hbjond.github.io</span></div>
+      <div class="muted">Built with HTML &amp; CSS • Hosted on GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script>
+    // small helper: smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+      })
+    })
+  </script>
 </body>
 </html>
