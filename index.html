@@ -213,7 +213,53 @@
           </ul>
         </section>
 
-      
+      <section id="position-flocking" class="card" style="margin-top:18px">
+          <h2>Position-Only Flocking Model</h2>
+          <p class="muted">
+            This model achieves flocking using only position information, avoiding explicit velocity sensing. 
+            The agent dynamics are given by:
+          </p>
+        
+          <p class="math-block">
+            \[
+              \begin{aligned}
+                \dot{\mathbf{p}}_i &= \mathbf{v}_i, \\
+                \dot{\mathbf{v}}_i &= \mathbf{a}_i^d, \\
+                \mathbf{a}_i^d &= 
+                \sum_{j \in \mathcal{N}_i} 
+                \hat{\psi}(\lVert \mathbf{p}_j - \mathbf{p}_i \rVert)
+                (\mathbf{p}_j - \mathbf{p}_i)
+                + 
+                \sum_{j \in \mathcal{N}_i} 
+                \hat{\phi}(\mathbf{p}_j(0) - \mathbf{p}_i(0)).
+              \end{aligned}
+            \]
+          </p>
+        
+          <p class="muted">
+            The adaptive weights are defined as 
+            \( \hat{\psi}(\lVert \mathbf{p}_j - \mathbf{p}_i \rVert) =
+            \psi(\lVert \mathbf{p}_j - \mathbf{p}_i \rVert) - \hat{\phi} \)
+            and 
+            \( \hat{\phi} = -\max\!\big( \tfrac{|\mathcal{N}_i|}{t}, \hat{\phi}_{\text{min}} \big) \).
+          </p>
+        
+          <p class="muted">
+            To maintain alignment over time, a <strong>threshold weight</strong> 
+            \( \hat{\phi}_{\text{min}} = k |\mathcal{N}_i| \) with \( k > 0 \)
+            ensures bounded influence as the system evolves 
+            (e.g., \( k = 0.1 \) for \( n = 50 \), \( r_i = 7.5\,\text{m} \)).
+            This scaling accelerates convergence for \( t < \tfrac{1}{k} \)
+            and preserves alignment for \( t \ge \tfrac{1}{k} \).
+          </p>
+        
+          <ul class="muted">
+            <li>Requires only position sensing (e.g., LIDAR), reducing complexity and noise sensitivity</li>
+            <li>Minimizes communication and processing costs compared to velocity-based models</li>
+            <li>Maintains long-term cohesion via adaptive threshold weighting</li>
+          </ul>
+        </section>
+
         
         <section id="publications" class="card" style="margin-top:18px">
           <h2>Publications</h2>
