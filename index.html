@@ -102,28 +102,37 @@
     <div class="grid">
       <div>
         <section id="research" class="card">
-          <h2>Research</h2>
+          <h2>Collective Behavior Model</h2>
           <p class="muted">
-            My work develops mathematical models and control algorithms for multi-agent robotic systems, bridging theory and real-world swarm robotics. 
-            A recent contribution is a <strong>novel minimal collective behavior model</strong> that captures emergent dynamics such as flocking, swarming, and vortexing. 
-            Unlike classical Vicsek, Cucker–Smale, or Olfati–Saber models, it achieves <em>collision-free, spatially flexible</em> behaviors through two tunable parameters 
-            — the spatial offset and kinetic offset — allowing smooth transitions between ordered flocking and exploratory swarming.
+            My current research develops models for swarm robotics. 
+            A recent contribution is a <strong>minimal collective behavior model</strong> that captures emergent patterns such as flocking, swarming, and vortexing (for small populations). 
+            Unlike classical Vicsek, Cucker–Smale, or Olfati–Saber models, it achieves <em>collision-free, spatially flexible</em> dynamics through two tunable parameters — the <em>spatial offset</em> and <em>kinetic offset</em> — enabling smooth transitions between ordered flocking and exploratory swarming.
           </p>
+        
+          <p class="muted">
+            The model considers a robot collective \(\mathcal{N}=\{1,\ldots,n\}\) with positions \(\mathbf{p}_i \in \mathbb{R}^d\) and velocities \(\mathbf{v}_i \in \mathbb{R}^d\), governed by
+            \[
+              \dot{\mathbf{p}}_i = \mathbf{v}_i, \quad \dot{\mathbf{v}}_i = \mathbf{u}_i,
+            \]
+            where \(\mathbf{u}_i = \mathbf{u}_{i,agg} + \mathbf{u}_{i,ali}\) combines aggregation and alignment interactions within a neighborhood \(\mathcal{N}_i\).
+          </p>
+        
           <ul class="muted">
-            <li>Minimal model for emergent flocking, swarming, and vortexing with built-in collision avoidance</li>
-            <li>Energy-aware adaptation enabling cognitive transitions between exploration and energy-efficient flocking</li>
-            <li>Target-directed and obstacle-aware extensions for navigation in cluttered environments</li>
-            <li>Scalable framework validated in large-scale simulations of autonomous aerial swarms</li>
+            <li><strong>Aggregation:</strong> \(\mathbf{u}_{i,agg} = \sum_{j\in\mathcal{N}_i} \psi(\lVert \mathbf{p}_{ij}\rVert)\mathbf{p}_{ij}\), with \(\psi = 1 - (\frac{\delta_i |\mathcal{N}_i|}{\lVert \mathbf{p}_{ij}\rVert})^{\alpha_i}\)</li>
+            <li><strong>Alignment:</strong> \(\mathbf{u}_{i,ali} = \sum_{j\in\mathcal{N}_i} \phi(\lVert \mathbf{v}_{ij}\rVert)\mathbf{v}_{ij}\), with \(\phi = 1 - (\frac{\eta_i}{|\mathcal{N}_i|\lVert \mathbf{v}_{ij}\rVert})^{\beta_i}\)</li>
+            <li>Spatial offset \(\delta_i\) defines equilibrium spacing; kinetic offset \(\eta_i\) regulates coordination intensity</li>
+            <li>Interaction functions are bounded via <em>tanh</em>, ensuring smooth cooperative or repulsive responses</li>
           </ul>
         
-          <h3 style="margin-top:16px">Selected highlights</h3>
+          <h3 style="margin-top:16px">Highlights</h3>
           <ul class="muted">
-            <li>Introduced a new collective behavior model published in <em>IEEE Transactions on Cognitive and Developmental Systems</em></li>
-            <li>Bridged the gap between bio-inspired simplicity and realistic robotic swarm requirements</li>
-            <li>Validated emergent flocking, swarming, and vortexing patterns in simulation for 100+ agents</li>
-            <li>Developed open-source implementations for robotics and swarm intelligence communities</li>
+            <li>Published in <em>IEEE Transactions on Cognitive and Developmental Systems</em> (<a href="https://doi.org/10.1109/TCDS.2025.3598690" target="_blank">DOI: 10.1109/TCDS.2025.3598690</a>)</li>
+            <li>Captures emergent flocking, swarming, and vortexing with built-in collision avoidance</li>
+            <li>Bridges minimal bio-inspired modeling with realistic robotic swarm behaviors</li>
+            <li>Validated through large-scale multi-agent simulations</li>
           </ul>
         </section>
+
 
         
         <section id="publications" class="card" style="margin-top:18px">
