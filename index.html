@@ -164,7 +164,56 @@
         </section>
 
 
+        <section id="flocking" class="card">
+          <h2>Flocking Model</h2>
+          <p class="muted">
+            This model formalizes the <strong>alignment mechanism</strong> in collective motion, where each agent adjusts its velocity to match that of its neighbors. 
+            The alignment acceleration for agent \( i \) is defined as:
+          </p>
+        
+          <p class="math-block">
+            \[
+              \mathbf{a}_{i,\mathrm{ali}} = 
+              \sum_{j \in \mathcal{N}_i} 
+              \phi(\lVert \mathbf{v}_j - \mathbf{v}_i \rVert)
+              (\mathbf{v}_j - \mathbf{v}_i), 
+              \quad 
+              \phi(\lVert \mathbf{v}_j - \mathbf{v}_i \rVert) 
+              = 1 - 
+              \left(
+                \frac{\eta_i}
+                {|\mathcal{N}_i| \lVert \mathbf{v}_j - \mathbf{v}_i \rVert}
+              \right),
+            \]
+          </p>
+        
+          <p class="muted">
+            where \( \eta_i > 0 \) denotes the <em>kinetic offset</em> controlling sensitivity to relative velocity differences, and \( |\mathcal{N}_i| \) is the number of neighbors within the interaction zone.
+          </p>
+        
+          <p class="muted">
+            In the simplified form, the interaction potential can be expressed as:
+          </p>
+        
+          <p class="math-block">
+            \[
+              \mathbf{a}_{i,\mathrm{ali}} 
+              = 
+              \sum_{j \in \mathcal{N}_i} 
+              \phi (\mathbf{v}_j - \mathbf{v}_i),
+              \quad 
+              \phi = \frac{1}{|\mathcal{N}_i|}.
+            \]
+          </p>
+        
+          <ul class="muted">
+            <li>Encourages local velocity synchronization among agents</li>
+            <li>Ensures smooth collective motion through distributed averaging</li>
+            <li>Scales naturally with neighborhood size \( |\mathcal{N}_i| \)</li>
+          </ul>
+        </section>
 
+      
         
         <section id="publications" class="card" style="margin-top:18px">
           <h2>Publications</h2>
